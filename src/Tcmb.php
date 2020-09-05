@@ -53,12 +53,12 @@ class Tcmb
 
 	public static function convert(float $amount, $from, $to, $date = false, int $decimals = 4) : float
     {
-    	if($from !== $to){
+    	if($from !== $to) {
 	        $date = new DateTime($date ?: date('Y-m-d'));
 	        $rates = ExchangeRate::actualForDate($date)->orderByDesc('date')->first();
 	        $rates = data_get($rates, 'rates');
 
-	       	if(!$rates){
+	       	if(!$rates) {
 	       		$rates = self::fetchRates($date);
 	       	}
 
@@ -68,7 +68,7 @@ class Tcmb
 	                $amount = $amount/(float)$rates[$to]['buy'];
 	            }elseif($to === $base) {
 	                $amount = $amount*(float)$rates[$from]['sell'];
-	            }elseif($from !== $to){
+	            }else {
 	                $amount = $amount*(float)$rates[$from]['sell']/(float)$rates[$to]['buy'];
 	            }
 		    }
