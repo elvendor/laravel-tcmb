@@ -1,0 +1,57 @@
+{
+    "name": "elvendor/tcmb",
+    "description": "Get currency rates from the Central Bank of the Republic of Turkey",
+    "keywords": [
+        "elvendor",
+        "tcmb"
+    ],
+    "homepage": "https://github.com/elvendor/tcmb",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bayram Ali",
+            "email": "bayram4ik@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0|^7.0|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elvendor\\Tcmb\\": "./src"
+        },
+        "files":[
+            "./src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Elvendor\\Tcmb\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Elvendor\\Tcmb\\TcmbServiceProvider"
+            ],
+            "aliases": {
+                "Tcmb": "Elvendor\\Tcmb\\TcmbFacade"
+            }
+        }
+    }
+}
