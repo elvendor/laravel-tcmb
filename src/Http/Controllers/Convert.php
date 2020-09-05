@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Elvendor\Tcmb\Tcmb;
 
-class ConvertRates extends Controller
+class Convert extends Controller
 {
     public function __invoke(Request $request)
     {

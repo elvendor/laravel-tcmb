@@ -9,14 +9,14 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Elvendor\Tcmb\Http\Resources\ExchangeRateResource;
 
-class ExchangeRates extends Controller
+class Rate extends Controller
 {
     public function __invoke(Request $request)
     {
         $rates = ExchangeRate::whereNotNull('rates')
-            ->period($request->input('start_date', date('Y-m-d')), $request->input('end_date', date('Y-m-d')))
+            ->actualForDate($request->input('date', date('Y-m-d')))
             ->orderByDesc('date')
-            ->get();
-        return ExchangeRateResource::collection($rates);
+            ->first();
+        return new ExchangeRateResource($rate);
     }
 }
