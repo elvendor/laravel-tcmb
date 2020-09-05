@@ -1,5 +1,5 @@
 {
-    "name": "elvendor/tcmb",
+    "name": "elvendor/laravel-tcmb",
     "description": "Get currency rates from the Central Bank of the Republic of Turkey",
     "keywords": [
         "elvendor",
