@@ -56,21 +56,21 @@ class Tcmb
         $date = new DateTime($date ?: date('Y-m-d'));
         $rates = ExchangeRate::actualForDate($date)->orderByDesc('date')->first();
 
-        $rates = $rates->rates;
-        
-        $base = 'TRY';
-
-        if($from === $to) {
-            return $amount;
-        }else{
-            if($from === $base) {
-                $amount = $amount/(float)$rates[$to]['buy'];
-            }elseif($to === $base) {
-                $amount = $amount*(float)$rates[$from]['sell'];
-            }else{
-                $amount = $amount*(float)$rates[$from]['sell']/(float)$rates[$to]['buy'];
-            }
-        }
-        return (float)number_format($amount, $decimals, '.', '');
+		if($rates){
+        	$rates = $rates->rates;
+	        $base = 'TRY';
+	        if($from === $to) {
+	            return $amount;
+	        }else{
+	            if($from === $base) {
+	                $amount = $amount/(float)$rates[$to]['buy'];
+	            }elseif($to === $base) {
+	                $amount = $amount*(float)$rates[$from]['sell'];
+	            }else{
+	                $amount = $amount*(float)$rates[$from]['sell']/(float)$rates[$to]['buy'];
+	            }
+	        }
+	        return (float)number_format($amount, $decimals, '.', '');
+	    }
     }
 }
