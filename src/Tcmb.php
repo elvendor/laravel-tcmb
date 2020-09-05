@@ -56,7 +56,9 @@ class Tcmb
         $date = new DateTime($date ?: date('Y-m-d'));
         $rates = ExchangeRate::actualForDate($date)->orderByDesc('date')->first();
 
-		if($rates){
+       	if(!$rates){
+       		$rates = self::fetchRates($date);
+       	} else {
         	$rates = $rates->rates;
 	        $base = 'TRY';
 	        if($from === $to) {
