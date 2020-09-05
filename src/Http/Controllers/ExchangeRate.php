@@ -14,7 +14,7 @@ class ExchangeRate extends Controller
     public function __invoke(Request $request)
     {
         $rates = ExchangeRate::whereNotNull('rates')
-            ->actualForDate($request->input('date', date('Y-m-d'))
+            ->actualForDate($request->input('date', date('Y-m-d')))
             ->orderByDesc('date')
             ->first();
         return new ExchangeRateResource($rate);
