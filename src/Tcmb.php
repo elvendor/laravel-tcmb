@@ -53,26 +53,26 @@ class Tcmb
 
 	public static function convert(float $amount, $from, $to, $date = false, int $decimals = 4) : float
     {
-        $date = new DateTime($date ?: date('Y-m-d'));
-        $rates = ExchangeRate::actualForDate($date)->orderByDesc('date')->first();
+    	if($from !== $to){
+	        $date = new DateTime($date ?: date('Y-m-d'));
+	        $rates = ExchangeRate::actualForDate($date)->orderByDesc('date')->first();
+	        $rates = data_get($rates, 'rates');
 
-       	if(!$rates){
-       		$rates = self::fetchRates($date);
-       	} else {
-        	$rates = $rates->rates;
-	        $base = 'TRY';
-	        if($from === $to) {
-	            return $amount;
-	        }else{
+	       	if(!$rates){
+	       		$rates = self::fetchRates($date);
+	       	}
+
+	       	if($rates && array_key_exists($to, $rates) && array_key_exists($from, $rates)) {
+		        $base = 'TRY';
 	            if($from === $base) {
 	                $amount = $amount/(float)$rates[$to]['buy'];
 	            }elseif($to === $base) {
 	                $amount = $amount*(float)$rates[$from]['sell'];
-	            }else{
+	            }elseif($from !== $to){
 	                $amount = $amount*(float)$rates[$from]['sell']/(float)$rates[$to]['buy'];
 	            }
-	        }
-	        return (float)number_format($amount, $decimals, '.', '');
-	    }
+		    }
+		}
+		return (float)number_format($amount, $decimals, '.', '');
     }
 }
