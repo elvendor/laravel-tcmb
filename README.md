@@ -1,11 +1,15 @@
 # Very short description of the package
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/elvendor/laravel-tcmb.svg?style=flat-square)](https://packagist.org/packages/elvendor/laravel-tcmb)
-[![Build Status](https://img.shields.io/travis/elvendor/tcmb/master.svg?style=flat-square)](https://travis-ci.org/elvendor/tcmb)
-[![Quality Score](https://img.shields.io/scrutinizer/g/elvendor/laravel-tcmb.svg?style=flat-square)](https://scrutinizer-ci.com/g/elvendor/laravel-tcmb)
+[![Build Status](https://img.shields.io/travis/elvendor/tcmb/master.svg?style=flat-square)](https://travis-ci.org/elvendor/laravel-tcmb)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/elvendor/laravel-tcmb/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/elvendor/laravel-tcmb/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/elvendor/laravel-tcmb/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/elvendor/laravel-tcmb/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/elvendor/laravel-tcmb/badges/build.png?b=master)](https://scrutinizer-ci.com/g/elvendor/laravel-tcmb/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/elvendor/laravel-tcmb/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 [![Total Downloads](https://img.shields.io/packagist/dt/elvendor/laravel-tcmb.svg?style=flat-square)](https://packagist.org/packages/elvendor/laravel-tcmb)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b75dc51ab0b513468213/maintainability)](https://codeclimate.com/github/elvendor/laravel-tcmb/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b75dc51ab0b513468213/test_coverage)](https://codeclimate.com/github/elvendor/laravel-tcmb/test_coverage)
+
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
 ## Installation
@@ -13,7 +17,7 @@ This is where your description should go. Try and limit it to a paragraph or two
 You can install the package via composer:
 
 ```bash
-composer require elvendor/tcmb
+composer require elvendor/laravel-tcmb
 ```
 
 ## Usage

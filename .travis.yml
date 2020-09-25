@@ -1,0 +1,23 @@
+dist: bionic
+
+language: php
+
+php:
+  - 7.4
+
+addons:
+  mysql: 8.0
+
+cache:
+  directories:
+    - vendor
+
+before_script:
+  - cp .env.travis .env
+  - sudo mysql -e 'CREATE DATABASE testing;'
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan migrate --no-interaction -vvv
+
+script:
+  - vendor/bin/phpunit
