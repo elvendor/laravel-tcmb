@@ -1,9 +1,9 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/elvendor/tcmb.svg?style=flat-square)](https://packagist.org/packages/elvendor/tcmb)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/elvendor/laravel-tcmb.svg?style=flat-square)](https://packagist.org/packages/elvendor/laravel-tcmb)
 [![Build Status](https://img.shields.io/travis/elvendor/tcmb/master.svg?style=flat-square)](https://travis-ci.org/elvendor/tcmb)
-[![Quality Score](https://img.shields.io/scrutinizer/g/elvendor/tcmb.svg?style=flat-square)](https://scrutinizer-ci.com/g/elvendor/tcmb)
-[![Total Downloads](https://img.shields.io/packagist/dt/elvendor/tcmb.svg?style=flat-square)](https://packagist.org/packages/elvendor/tcmb)
+[![Quality Score](https://img.shields.io/scrutinizer/g/elvendor/laravel-tcmb.svg?style=flat-square)](https://scrutinizer-ci.com/g/elvendor/laravel-tcmb)
+[![Total Downloads](https://img.shields.io/packagist/dt/elvendor/laravel-tcmb.svg?style=flat-square)](https://packagist.org/packages/elvendor/laravel-tcmb)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b75dc51ab0b513468213/maintainability)](https://codeclimate.com/github/elvendor/laravel-tcmb/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b75dc51ab0b513468213/test_coverage)](https://codeclimate.com/github/elvendor/laravel-tcmb/test_coverage)
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
