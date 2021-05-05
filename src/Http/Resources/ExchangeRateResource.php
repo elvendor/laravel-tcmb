@@ -1,4 +1,4 @@
- <?php 
+<?php 
 
 declare(strict_types=1);
 
@@ -11,8 +11,8 @@ class ExchangeRateResource extends JsonResource
     public function toArray($request)
     {
         return [
-        	'date' => $this->date,
-        	'rates' => $this->rates
+            'date' => $this->date,
+            'rates' => $this->rates
         ];
     }
 }
