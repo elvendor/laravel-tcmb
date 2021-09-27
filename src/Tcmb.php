@@ -37,10 +37,10 @@ class Tcmb
 		$rates = [];
 		$response = null;
         $response = @simplexml_load_file('http://www.tcmb.gov.tr/kurlar/' . $date->format('Ym') . '/' . $date->format('dmY') . '.xml');
-        if($response){
+        if ($response) {
 			$currencies = config('tcmb.currencies');
-			foreach($currencies as $currency){
-				if(array_key_exists($currency, self::currencies)) {
+			foreach ($currencies as $currency) {
+				if (array_key_exists($currency, self::currencies)) {
 					$index = self::currencies[$currency]['index'];
 					data_set($rates, "{$currency}.buy", (float)$response->Currency[$index]->ForexBuying);
 					data_set($rates, "{$currency}.sell", (float)$response->Currency[$index]->ForexSelling);
@@ -53,23 +53,23 @@ class Tcmb
 
 	public static function convert(float $amount, $from, $to, $date = false, int $decimals = 4) : float
     {
-    	if($from !== $to) {
+    	if ($from !== $to && $amount > 0) {
 	        $date = new DateTime($date ?: date('Y-m-d'));
 	        $rates = ExchangeRate::actualForDate($date)->orderByDesc('date')->first();
 	        $rates = data_get($rates, 'rates');
 
-	       	if(!$rates) {
+	       	if (!$rates) {
 	       		$rates = self::fetchRates($date);
 	       	}
 
-	       	if($rates && array_key_exists($to, $rates) && array_key_exists($from, $rates)) {
+	       	if ($rates && array_key_exists($to, $rates) && array_key_exists($from, $rates) && $rates[$to]['buy'] > 0 && $rates[$from]['sell'] > 0) {
 		        $base = 'TRY';
-	            if($from === $base) {
-	                $amount = $amount/(float)$rates[$to]['buy'];
-	            }elseif($to === $base) {
-	                $amount = $amount*(float)$rates[$from]['sell'];
-	            }else {
-	                $amount = $amount*(float)$rates[$from]['sell']/(float)$rates[$to]['buy'];
+	            if ($from === $base) {
+	                $amount = $amount / (float)$rates[$to]['buy'];
+	            } elseif ($to === $base) {
+	                $amount = $amount * (float)$rates[$from]['sell'];
+	            } else {
+	                $amount = $amount * (float)$rates[$from]['sell'] / (float)$rates[$to]['buy'];
 	            }
 		    }
 		}
