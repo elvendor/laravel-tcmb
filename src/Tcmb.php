@@ -36,7 +36,7 @@ class Tcmb
 	{
 		$rates = [];
 		$response = null;
-        $response = @simplexml_load_file('http://www.tcmb.gov.tr/kurlar/' . $date->format('Ym') . '/' . $date->format('dmY') . '.xml');
+        $response = @simplexml_load_file('https://www.tcmb.gov.tr/kurlar/' . $date->format('Ym') . '/' . $date->format('dmY') . '.xml');
         if ($response) {
 			$currencies = config('tcmb.currencies');
 			foreach ($currencies as $currency) {
